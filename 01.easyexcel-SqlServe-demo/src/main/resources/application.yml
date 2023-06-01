@@ -1,7 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://localhost;DatabaseName=text
+#     url: jdbc:sqlserver://localhost;DatabaseName=text
+    #开启
+    url: jdbc:sqlserver://localhost;DatabaseName=text;rewriteBatchedStatements=true
     username: sa
     password: admin1552412358
 mybatis-plus:
