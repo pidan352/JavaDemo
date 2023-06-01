@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.mapper.TranslogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.entity.Translog">
+        <result column="ssn" property="ssn" />
+        <result column="term_ssn" property="termSsn" />
+        <result column="tx_acc" property="txAcc" />
+        <result column="mer_code" property="merCode" />
+        <result column="term" property="term" />
+        <result column="tran_code" property="tranCode" />
+        <result column="tran_curr" property="tranCurr" />
+        <result column="sett_curr" property="settCurr" />
+        <result column="cb_bank" property="cbBank" />
+        <result column="act_date" property="actDate" />
+        <result column="act_time" property="actTime" />
+        <result column="post_date" property="postDate" />
+        <result column="tran_amt" property="tranAmt" />
+        <result column="n_tran_amt" property="nTranAmt" />
+        <result column="hs_amt" property="hsAmt" />
+        <result column="hs_comm" property="hsComm" />
+        <result column="fcardtype" property="fcardtype" />
+        <result column="fcomma" property="fcomma" />
+        <result column="feps" property="feps" />
+        <result column="card_no" property="cardNo" />
+        <result column="js_code" property="jsCode" />
+        <result column="servicePointInserttype" property="servicepointinserttype" />
+        <result column="term_ability" property="termAbility" />
+        <result column="ICcardConditionCode" property="iccardconditioncode" />
+        <result column="typeid" property="typeid" />
+        <result column="index_no" property="indexNo" />
+    </resultMap>
+
+</mapper>

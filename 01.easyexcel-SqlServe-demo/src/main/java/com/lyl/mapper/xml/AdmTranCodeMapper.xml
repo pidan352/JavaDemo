@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.mapper.AdmTranCodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.entity.AdmTranCode">
+        <result column="tran_code" property="tranCode" />
+        <result column="requst_code" property="requstCode" />
+        <result column="response_code" property="responseCode" />
+        <result column="tran_type_3" property="tranType3" />
+        <result column="service_point_25" property="servicePoint25" />
+        <result column="sett_flag" property="settFlag" />
+        <result column="is_need_sett" property="isNeedSett" />
+        <result column="remark" property="remark" />
+        <result column="duizh_remark" property="duizhRemark" />
+    </resultMap>
+
+</mapper>

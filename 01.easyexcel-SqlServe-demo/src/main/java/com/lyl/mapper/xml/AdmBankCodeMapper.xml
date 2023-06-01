@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.mapper.AdmBankCodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.entity.AdmBankCode">
+        <result column="bank_code" property="bankCode" />
+        <result column="old_code" property="oldCode" />
+        <result column="bank_sign" property="bankSign" />
+        <result column="bank_name" property="bankName" />
+    </resultMap>
+
+</mapper>

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost;DatabaseName=text
+    username: sa
+    password: admin1552412358
+mybatis-plus:
+  configuration:
+    #showSql
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      schema: "[text].[easy-excel-test]"
