@@ -81,14 +81,17 @@ public class InsertData {
 	 * 开启重写sql参数，结果几乎一致
 	 *
 	 *
-	 * 在不打印sql的情况下，时间来到了14秒
+	 * 在不打印sql和输出语句的情况下，时间来到了14秒
+	 *
+	 *
+	 * 插入百万数据时间约为一份45秒
 	 */
 	@Test
 	void test2() {
 		//StopWatch stopWatch = new StopWatch();
 		//stopWatch.start();
 		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
-		for (int i = 1; i <= 100000; i++) {
+		for (int i = 1; i <= 1000000; i++) {
 			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
 			tm04MerMultiApp.setId("test" + i);
 			tm04MerMultiApp.setCustomerId("test" + i);
@@ -110,11 +113,11 @@ public class InsertData {
 			tm04MerMultiApp.setAppNo(0d);
 
 			list.add(tm04MerMultiApp);
-			if (i % 1000 == 0) {
+			if (i % 10000 == 0) {
 				boolean b = tm04MerMultiAppService.saveBatch(list);
-				//if (b) {
-				//	System.out.println("批量插入第" + i / 10000 + "次");
-				//}
+				if (b) {
+					System.out.println("批量插入第" + i / 10000 + "次");
+				}
 				list.clear();
 			}
 		}
@@ -130,13 +133,17 @@ public class InsertData {
 	 * <p>
 	 * 结果：16544毫秒 约16秒
 	 *
+	 * 不显示sql和输出语句，时间约为12秒
+	 *
+	 * 插入百万数据约为一分28秒
+	 *
 	 */
 	@Test
 	void test3() {
 		//StopWatch stopWatch = new StopWatch();
 		//stopWatch.start("开始");
 		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
-		for (int i = 1; i <= 100000; i++) {
+		for (int i = 1; i <= 1000000; i++) {
 			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
 			tm04MerMultiApp.setId("test" + i);
 			tm04MerMultiApp.setCustomerId("test" + i);
