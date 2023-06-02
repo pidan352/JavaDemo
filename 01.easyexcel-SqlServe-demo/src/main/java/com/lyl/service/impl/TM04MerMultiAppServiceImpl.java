@@ -6,9 +6,11 @@ import com.lyl.service.ITM04MerMultiAppService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author lyl
@@ -17,4 +19,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class TM04MerMultiAppServiceImpl extends ServiceImpl<TM04MerMultiAppMapper, TM04MerMultiApp> implements ITM04MerMultiAppService {
 
+	@Override
+	public boolean saveBatchTest(List list) {
+		return baseMapper.saveBatchTest(list);
+	}
 }

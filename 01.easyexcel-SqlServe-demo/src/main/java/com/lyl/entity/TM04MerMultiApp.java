@@ -5,8 +5,8 @@ import java.time.LocalDateTime;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import lombok.*;
 
 /**
  * <p>
@@ -16,12 +16,15 @@ import lombok.EqualsAndHashCode;
  * @author lyl
  * @since 2023-05-30
  */
-@Data
+@Setter
+@ToString
 @EqualsAndHashCode(callSuper = false)
 @TableName("T_M04_MER_MULTI_APP")
 public class TM04MerMultiApp implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
 
     @TableField("ID")
     private String id;

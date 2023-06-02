@@ -108,4 +108,11 @@
         <result column="MAINTAIN_TEL_BGENC" property="maintainTelBgenc" />
     </resultMap>
 
+    <insert id="saveBatchTest" parameterType="java.util.List">
+        insert into [text].[easy-excel-test].T_M04_MER_MULTI_APP( id, CUSTOMER_ID, IS_MAIN, REGISTER_WAY, STATUS, IS_SETTLEMENT, HEAD_QUARTERS_FLAG, IS_TRADE_PROCESS, ACQUIRER_NO, CREATER, CREATE_DATE, LAST_MODIFIER, LAST_MODIFY_DATE, BRANCH, PROVINCE_BRANCH, IS_DELETE, APP_CATEGORY, APP_NO )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.id}, #{item.customerId}, #{item.isMain}, #{item.registerWay}, #{item.status}, #{item.isSettlement}, #{item.headQuartersFlag}, #{item.isTradeProcess}, #{item.acquirerNo}, #{item.creater}, #{item.createDate}, #{item.lastModifier}, #{item.lastModifyDate}, #{item.branch}, #{item.provinceBranch}, #{item.isDelete},#{item.appCategory}, #{item.appNo} )
+        </foreach>
+    </insert>
 </mapper>

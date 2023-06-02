@@ -1,15 +1,16 @@
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#     url: jdbc:sqlserver://localhost;DatabaseName=text
-    #开启
-    url: jdbc:sqlserver://localhost;DatabaseName=text;rewriteBatchedStatements=true
+    url: jdbc:sqlserver://localhost;DatabaseName=text
+    #开启sql重写
+#    url: jdbc:sqlserver://localhost;DatabaseName=text;rewriteBatchedStatements=true
     username: sa
     password: admin1552412358
 mybatis-plus:
-  configuration:
+#  configuration:
     #showSql
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       schema: "[text].[easy-excel-test]"
+  mapper-locations: classpath:xml/**.xml
