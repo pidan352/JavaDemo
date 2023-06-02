@@ -2,6 +2,7 @@ package com.lyl.service.impl;
 
 import com.lyl.entity.TM04MerMultiApp;
 import com.lyl.mapper.TM04MerMultiAppMapper;
+import com.lyl.mappers.ExtendBaseMapper;
 import com.lyl.service.ITM04MerMultiAppService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;

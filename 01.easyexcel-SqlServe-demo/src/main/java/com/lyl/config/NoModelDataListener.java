@@ -7,6 +7,13 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 
+/**
+ * 功能：easyExcel解析数据的监听器
+ *
+ * @author 林亦亮
+ * @version 1.0
+ * @date 2023/6/1
+ */
 @Slf4j
 public class NoModelDataListener extends AnalysisEventListener<Map<Integer, String>> {
 

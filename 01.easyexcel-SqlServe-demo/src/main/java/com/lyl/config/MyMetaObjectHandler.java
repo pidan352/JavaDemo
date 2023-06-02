@@ -25,6 +25,13 @@ import java.time.LocalDateTime;
  * @date 2023/5/31 0031
  */
 
+/**
+ * 功能：MybatisPlus的字段自动插入更新拦截器
+ *
+ * @author 林亦亮
+ * @version 1.0
+ * @date 2023/6/2 0002
+ */
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
 

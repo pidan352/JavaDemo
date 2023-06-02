@@ -2,7 +2,6 @@ package com.lyl.test;
 
 import com.lyl.entity.TM04MerMultiApp;
 import com.lyl.mapper.TM04MerMultiAppMapper;
-import com.lyl.mapper.TestMapper;
 import com.lyl.service.ITM04MerMultiAppService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +24,9 @@ public class InsertData {
 
 	@Resource
 	ITM04MerMultiAppService tm04MerMultiAppService;
+
+	@Resource
+	TM04MerMultiAppMapper tm04MerMultiAppMapper;
 
 	/**
 	 * 未开重写sql参数
@@ -79,11 +81,11 @@ public class InsertData {
 	 * <p>
 	 * <p>
 	 * 开启重写sql参数，结果几乎一致
-	 *
-	 *
+	 * <p>
+	 * <p>
 	 * 在不打印sql和输出语句的情况下，时间来到了14秒
-	 *
-	 *
+	 * <p>
+	 * <p>
 	 * 插入百万数据时间约为一份45秒
 	 */
 	@Test
@@ -132,11 +134,10 @@ public class InsertData {
 	 * 因为数据太多时会报错，一次性插入的字段参数过多，不能超过2100个参数
 	 * <p>
 	 * 结果：16544毫秒 约16秒
-	 *
+	 * <p>
 	 * 不显示sql和输出语句，时间约为12秒
-	 *
+	 * <p>
 	 * 插入百万数据约为一分28秒
-	 *
 	 */
 	@Test
 	void test3() {
@@ -175,5 +176,45 @@ public class InsertData {
 		}
 		//stopWatch.stop();
 		//System.out.println("执行完毕：" + stopWatch.getTotalTimeMillis());
+	}
+
+	/**
+	 * sql语句是解析了实体类的所有字段，导致参数变多
+	 *
+	 * 最终执行时间约为44秒，对于字段多的数据不好用
+	 */
+	@Test
+	void test4() {
+		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
+		for (int i = 1; i <= 100000; i++) {
+			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
+			tm04MerMultiApp.setId("test" + i);
+			tm04MerMultiApp.setCustomerId("test" + i);
+			tm04MerMultiApp.setIsMain(0d);
+			tm04MerMultiApp.setRegisterWay(0d);
+			tm04MerMultiApp.setStatus(0d);
+			tm04MerMultiApp.setHeadQuartersFlag(0d);
+			tm04MerMultiApp.setIsTradeProcess(0d);
+			tm04MerMultiApp.setIsSettlement(0d);
+			tm04MerMultiApp.setAcquirerNo("test" + i);
+			tm04MerMultiApp.setCreater("test" + i);
+			tm04MerMultiApp.setCreateDate(LocalDateTime.now());
+			tm04MerMultiApp.setLastModifier("test" + i);
+			tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
+			tm04MerMultiApp.setBranch("test" + i);
+			tm04MerMultiApp.setProvinceBranch("test" + i);
+			tm04MerMultiApp.setIsDelete("0");
+			tm04MerMultiApp.setAppCategory(0d);
+			tm04MerMultiApp.setAppNo(0d);
+
+			list.add(tm04MerMultiApp);
+			if (i % 20 == 0) {
+				Integer j = tm04MerMultiAppMapper.insertBatchSomeColumn(list);
+				if (j > 0) {
+					System.out.println("批量插入第" + i / 20 + "次");
+				}
+				list.clear();
+			}
+		}
 	}
 }
