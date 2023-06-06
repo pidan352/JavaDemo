@@ -102,7 +102,7 @@ public class CodeGenerator {
 				.enableFileOverride() //覆盖旧文件
 				.enableLombok()
 				//.enableRemoveIsPrefix()//开启 Boolean 类型字段移除 is 前缀
-				//.enableTableFieldAnnotation()//开启生成实体时生成字段注解
+				.enableTableFieldAnnotation()//开启生成实体时生成字段注解
 				//.logicDeleteColumnName("IS_DELETE") //数据库逻辑删除字段
 				.naming(NamingStrategy.underline_to_camel) //数据库表映射到实体的命名策略
 				.columnNaming(

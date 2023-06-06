@@ -30,31 +30,42 @@ public class M13AppMultiAccount implements Serializable {
     @TableId(value = "ID", type = IdType.ASSIGN_UUID)
     private String id;
 
+    @TableField("CUSTOMER_ID")
     private String customerId;
 
+    @TableField("MULTI_APP_ID")
     private String multiAppId;
 
+    @TableField("ACCOUNT_ID")
     private String accountId;
 
+    @TableField("CARD_ATTR")
     private Long cardAttr;
 
+    @TableField("ISSUE_INST_NO")
     private String issueInstNo;
 
+    @TableField("PRIORITY")
     private Long priority;
 
+    @TableField("CREATER")
     private String creater;
 
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(value = "CREATE_DATE", fill = FieldFill.INSERT)
     private LocalDateTime createDate;
 
+    @TableField("LAST_MODIFIER")
     private String lastModifier;
 
+    @TableField("LAST_MODIFY_DATE")
     private LocalDateTime lastModifyDate;
 
+    @TableField("BRANCH")
     private String branch;
 
+    @TableField("PROVINCE_BRANCH")
     private String provinceBranch;
 
-    @TableField(fill = FieldFill.INSERT)
+    @TableField(value = "IS_DELETE", fill = FieldFill.INSERT)
     private String isDelete;
 }

@@ -18,6 +18,7 @@ import java.util.List;
  */
 @Service
 public class M04MerMultiAppServiceImpl extends ServiceImpl<M04MerMultiAppMapper, M04MerMultiApp> implements M04MerMultiAppService {
+
     @Override
     public boolean saveBatchTest(List list) {
         return baseMapper.saveBatchTest(list);

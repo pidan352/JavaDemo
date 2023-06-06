@@ -1,20 +1,18 @@
 package com.lyl.entity;
 
-import com.alibaba.excel.annotation.ExcelProperty;
-import com.alibaba.excel.annotation.format.DateTimeFormat;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.lyl.converter.TestConverter;
+import com.baomidou.mybatisplus.annotation.TableName;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author lyl
@@ -23,21 +21,20 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Accessors(chain = true)
+@TableName("test")
 public class Test implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ExcelProperty("数据库id")
     @TableId(value = "ID", type = IdType.ASSIGN_UUID)
     private String id;
 
-    @ExcelProperty(value = "测试字段")
+    @TableField("TEST")
     private Long test;
 
-    @ExcelProperty("创建时间")
-    @DateTimeFormat("yyyy年MM月dd日HH时mm分ss秒")
+    @TableField("createdate")
     private LocalDateTime createdate;
 
-    @ExcelProperty(value = "描述", converter = TestConverter.class)
+    @TableField("mic")
     private String mic;
 }
