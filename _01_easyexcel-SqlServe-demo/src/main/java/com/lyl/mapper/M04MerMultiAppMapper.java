@@ -2,6 +2,7 @@ package com.lyl.mapper;
 
 import com.lyl.entity.M04MerMultiApp;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.lyl.mappers.ExtendBaseMapper;
 
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  * @author lyl
  * @since 2023-06-06
  */
-public interface M04MerMultiAppMapper extends BaseMapper<M04MerMultiApp> {
+public interface M04MerMultiAppMapper extends ExtendBaseMapper<M04MerMultiApp> {
 
     boolean saveBatchTest(List list);
 }
