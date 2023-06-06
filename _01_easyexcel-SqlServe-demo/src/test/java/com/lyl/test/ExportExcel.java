@@ -73,9 +73,12 @@ public class ExportExcel {
             // 去调用写入,这里我调用了五次，实际使用时根据数据库分页的总的页数来
             for (int i = 0; i < 200; i++) {
                 // 分页去数据库查询数据 这里可以去数据库查询每一页的数据
-                List<M04MerMultiApp> data = m04MerMultiAppService.page(new Page<>(i, 5000))
-                        .getRecords();
-                excelWriter.write(data, writeSheet);
+                Page<M04MerMultiApp> page1 = new Page<>(i, 5000);
+                //这样就不会弹出jsqlparse的异常了
+                page1.setOptimizeCountSql(false);
+                Page<M04MerMultiApp> page = m04MerMultiAppService.page(page1);
+
+                excelWriter.write(page.getRecords(), writeSheet);
             }
         }
     }

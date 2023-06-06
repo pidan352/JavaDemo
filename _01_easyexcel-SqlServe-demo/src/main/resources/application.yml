@@ -7,7 +7,7 @@ spring:
     username: sa
     password: admin1552412358
 mybatis-plus:
-  configuration:
+#  configuration:
 #    showSql
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
