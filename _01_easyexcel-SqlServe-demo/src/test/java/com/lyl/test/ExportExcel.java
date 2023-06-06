@@ -9,6 +9,7 @@ import com.lyl.service.M04MerMultiAppService;
 import com.lyl.service.TestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.StopWatch;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -70,7 +71,10 @@ public class ExportExcel {
         try (ExcelWriter excelWriter = EasyExcel.write(fileName, M04MerMultiApp.class).build()) {
             // 这里注意 如果同一个sheet只要创建一次
             WriteSheet writeSheet = EasyExcel.writerSheet("sheet1").build();
-            // 去调用写入,这里我调用了五次，实际使用时根据数据库分页的总的页数来
+
+            //单sheet最多有1048576行,数据量超过的话还是需要严谨一点做判断的
+            StopWatch stopWatch = new StopWatch();
+            stopWatch.start();
             for (int i = 0; i < 200; i++) {
                 // 分页去数据库查询数据 这里可以去数据库查询每一页的数据
                 Page<M04MerMultiApp> page1 = new Page<>(i, 5000);
@@ -80,6 +84,8 @@ public class ExportExcel {
 
                 excelWriter.write(page.getRecords(), writeSheet);
             }
+            stopWatch.stop();
+            System.out.println("运行时间：" + stopWatch.getTotalTimeSeconds());
         }
     }
 }
