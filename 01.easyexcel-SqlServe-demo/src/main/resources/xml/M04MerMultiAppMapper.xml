@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.mapper.M04MerMultiAppMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.entity.M04MerMultiApp">
+        <id column="ID" property="id" />
+        <result column="CUSTOMER_ID" property="customerId" />
+        <result column="IS_MAIN" property="isMain" />
+        <result column="PROJECT_NAME" property="projectName" />
+        <result column="PROJECT_SUB_CATEGORIES" property="projectSubCategories" />
+        <result column="REGISTER_WAY" property="registerWay" />
+        <result column="STATUS" property="status" />
+        <result column="MCC_CODE" property="mccCode" />
+        <result column="MERCHANT_NO" property="merchantNo" />
+        <result column="TRA_FRONT_PLATFORM_NO" property="traFrontPlatformNo" />
+        <result column="TRA_ACCEPT_CHANNEL_NO" property="traAcceptChannelNo" />
+        <result column="SETTLEMENT_NO" property="settlementNo" />
+        <result column="HEAD_QUARTERS_FLAG" property="headQuartersFlag" />
+        <result column="IS_TRADE_PROCESS" property="isTradeProcess" />
+        <result column="IS_SETTLEMENT" property="isSettlement" />
+        <result column="NET_IDENTIFIER" property="netIdentifier" />
+        <result column="OLD_MERCHANT_NO" property="oldMerchantNo" />
+        <result column="ACQUIRER_NO" property="acquirerNo" />
+        <result column="ACQUIRER_SUB_NO" property="acquirerSubNo" />
+        <result column="ACQUIRER_SUB_NAME" property="acquirerSubName" />
+        <result column="ACQUIRER_MERCHANT_NO" property="acquirerMerchantNo" />
+        <result column="DEALING_TYPES" property="dealingTypes" />
+        <result column="KEY_INDEX" property="keyIndex" />
+        <result column="TELPHONE1" property="telphone1" />
+        <result column="TELPHONE2" property="telphone2" />
+        <result column="TELPHONE3" property="telphone3" />
+        <result column="MAINTAIN_TEL" property="maintainTel" />
+        <result column="APP_BEGIN_DATE" property="appBeginDate" />
+        <result column="APP_END_DATE" property="appEndDate" />
+        <result column="CHECK_FLAG" property="checkFlag" />
+        <result column="REFUSE_REASON" property="refuseReason" />
+        <result column="PASS_TYPE" property="passType" />
+        <result column="DEVELOPING_DEPT" property="developingDept" />
+        <result column="DEVELOPING_DEPT_NAME" property="developingDeptName" />
+        <result column="DEVELOPING_PERSON" property="developingPerson" />
+        <result column="DEVELOPING_PERSON_NAME" property="developingPersonName" />
+        <result column="CUSTOMER_MANAGER" property="customerManager" />
+        <result column="CUSTOMER_MANAGER_NAME" property="customerManagerName" />
+        <result column="BMS_ID" property="bmsId" />
+        <result column="CREATER" property="creater" />
+        <result column="CREATE_DATE" property="createDate" />
+        <result column="LAST_MODIFIER" property="lastModifier" />
+        <result column="LAST_MODIFY_DATE" property="lastModifyDate" />
+        <result column="BRANCH" property="branch" />
+        <result column="PROVINCE_BRANCH" property="provinceBranch" />
+        <result column="IS_DELETE" property="isDelete" />
+        <result column="CHECK_DATE" property="checkDate" />
+        <result column="APP_CATEGORY" property="appCategory" />
+        <result column="BUSINESS_CATEGORY" property="businessCategory" />
+        <result column="SUPPORT_CARD" property="supportCard" />
+        <result column="APP_NO" property="appNo" />
+        <result column="SUPPORT_CARDTYPE" property="supportCardtype" />
+        <result column="FEE_TYPE" property="feeType" />
+        <result column="FEE_LEVEL" property="feeLevel" />
+        <result column="PAY_COMMENTS" property="payComments" />
+        <result column="CAPITALMERNO" property="capitalmerno" />
+        <result column="ACQUIRERINSTNO" property="acquirerinstno" />
+        <result column="OPSFLAG" property="opsflag" />
+        <result column="CLASSICFLAG" property="classicflag" />
+        <result column="IS_ALLOW_DOWN" property="isAllowDown" />
+        <result column="UNION_REG_CODE" property="unionRegCode" />
+        <result column="IS_WHITE_FLAG" property="isWhiteFlag" />
+        <result column="DEBIT_CREDIT_FLAG" property="debitCreditFlag" />
+        <result column="RETURN_FLAG" property="returnFlag" />
+        <result column="RETURN_RATE" property="returnRate" />
+        <result column="FIELD_1" property="field1" />
+        <result column="FIELD_2" property="field2" />
+        <result column="FIELD_3" property="field3" />
+        <result column="FIELD_4" property="field4" />
+        <result column="FIELD_5" property="field5" />
+        <result column="FIELD_6" property="field6" />
+        <result column="FIELD_7" property="field7" />
+        <result column="FIELD_8" property="field8" />
+        <result column="FIELD_9" property="field9" />
+        <result column="FIELD_10" property="field10" />
+        <result column="IS_OUTRULE" property="isOutrule" />
+        <result column="OUTRULE_REASON" property="outruleReason" />
+        <result column="APPLY_FREE_SIGN_FREE_PASSWORD" property="applyFreeSignFreePassword" />
+        <result column="FIELD_11" property="field11" />
+        <result column="FIELD_12" property="field12" />
+        <result column="FIELD_13" property="field13" />
+        <result column="FIELD_14" property="field14" />
+        <result column="FIELD_15" property="field15" />
+        <result column="FIELD_16" property="field16" />
+        <result column="FIELD_17" property="field17" />
+        <result column="FIELD_18" property="field18" />
+        <result column="FIELD_19" property="field19" />
+        <result column="FIELD_20" property="field20" />
+        <result column="FIELD_21" property="field21" />
+        <result column="FIELD_22" property="field22" />
+        <result column="FIELD_23" property="field23" />
+        <result column="FIELD_24" property="field24" />
+        <result column="FIELD_25" property="field25" />
+        <result column="TELPHONE1_ENC" property="telphone1Enc" />
+        <result column="TELPHONE2_ENC" property="telphone2Enc" />
+        <result column="TELPHONE3_ENC" property="telphone3Enc" />
+        <result column="MAINTAIN_TEL_ENC" property="maintainTelEnc" />
+        <result column="RISK_RANK" property="riskRank" />
+        <result column="TELPHONE1_BGENC" property="telphone1Bgenc" />
+        <result column="TELPHONE2_BGENC" property="telphone2Bgenc" />
+        <result column="TELPHONE3_BGENC" property="telphone3Bgenc" />
+        <result column="MAINTAIN_TEL_BGENC" property="maintainTelBgenc" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, CUSTOMER_ID, IS_MAIN, PROJECT_NAME, PROJECT_SUB_CATEGORIES, REGISTER_WAY, STATUS, MCC_CODE, MERCHANT_NO, TRA_FRONT_PLATFORM_NO, TRA_ACCEPT_CHANNEL_NO, SETTLEMENT_NO, HEAD_QUARTERS_FLAG, IS_TRADE_PROCESS, IS_SETTLEMENT, NET_IDENTIFIER, OLD_MERCHANT_NO, ACQUIRER_NO, ACQUIRER_SUB_NO, ACQUIRER_SUB_NAME, ACQUIRER_MERCHANT_NO, DEALING_TYPES, KEY_INDEX, TELPHONE1, TELPHONE2, TELPHONE3, MAINTAIN_TEL, APP_BEGIN_DATE, APP_END_DATE, CHECK_FLAG, REFUSE_REASON, PASS_TYPE, DEVELOPING_DEPT, DEVELOPING_DEPT_NAME, DEVELOPING_PERSON, DEVELOPING_PERSON_NAME, CUSTOMER_MANAGER, CUSTOMER_MANAGER_NAME, BMS_ID, CREATER, CREATE_DATE, LAST_MODIFIER, LAST_MODIFY_DATE, BRANCH, PROVINCE_BRANCH, IS_DELETE, CHECK_DATE, APP_CATEGORY, BUSINESS_CATEGORY, SUPPORT_CARD, APP_NO, SUPPORT_CARDTYPE, FEE_TYPE, FEE_LEVEL, PAY_COMMENTS, CAPITALMERNO, ACQUIRERINSTNO, OPSFLAG, CLASSICFLAG, IS_ALLOW_DOWN, UNION_REG_CODE, IS_WHITE_FLAG, DEBIT_CREDIT_FLAG, RETURN_FLAG, RETURN_RATE, FIELD_1, FIELD_2, FIELD_3, FIELD_4, FIELD_5, FIELD_6, FIELD_7, FIELD_8, FIELD_9, FIELD_10, IS_OUTRULE, OUTRULE_REASON, APPLY_FREE_SIGN_FREE_PASSWORD, FIELD_11, FIELD_12, FIELD_13, FIELD_14, FIELD_15, FIELD_16, FIELD_17, FIELD_18, FIELD_19, FIELD_20, FIELD_21, FIELD_22, FIELD_23, FIELD_24, FIELD_25, TELPHONE1_ENC, TELPHONE2_ENC, TELPHONE3_ENC, MAINTAIN_TEL_ENC, RISK_RANK, TELPHONE1_BGENC, TELPHONE2_BGENC, TELPHONE3_BGENC, MAINTAIN_TEL_BGENC
+    </sql>
+
+    <insert id="saveBatchTest" parameterType="java.util.List">
+        insert into [text].[easy-excel-test].T_M04_MER_MULTI_APP( id, CUSTOMER_ID, IS_MAIN, REGISTER_WAY, STATUS, IS_SETTLEMENT, HEAD_QUARTERS_FLAG, IS_TRADE_PROCESS, ACQUIRER_NO, CREATER, CREATE_DATE, LAST_MODIFIER, LAST_MODIFY_DATE, BRANCH, PROVINCE_BRANCH, IS_DELETE, APP_CATEGORY, APP_NO )
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            ( #{item.id}, #{item.customerId}, #{item.isMain}, #{item.registerWay}, #{item.status}, #{item.isSettlement}, #{item.headQuartersFlag}, #{item.isTradeProcess}, #{item.acquirerNo}, #{item.creater}, #{item.createDate}, #{item.lastModifier}, #{item.lastModifyDate}, #{item.branch}, #{item.provinceBranch}, #{item.isDelete},#{item.appCategory}, #{item.appNo} )
+        </foreach>
+    </insert>
+</mapper>

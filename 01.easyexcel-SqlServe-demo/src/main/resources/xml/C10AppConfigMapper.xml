@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.mapper.C10AppConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lyl.entity.C10AppConfig">
+        <id column="ID" property="id" />
+        <id column="BRANCH" property="branch" />
+        <result column="NAME" property="name" />
+        <result column="APP_NO" property="appNo" />
+        <result column="ENABLE" property="enable" />
+        <result column="IMPORT_KEY" property="importKey" />
+        <result column="CREATER" property="creater" />
+        <result column="CREATE_DATE" property="createDate" />
+        <result column="APP_CATEGORY" property="appCategory" />
+        <result column="DIRECT_AUTO_CUPS_PUSH" property="directAutoCupsPush" />
+        <result column="INDIRECT_AUTO_CUPS_PUSH" property="indirectAutoCupsPush" />
+        <result column="IS_ATM" property="isAtm" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, BRANCH, NAME, APP_NO, ENABLE, IMPORT_KEY, CREATER, CREATE_DATE, APP_CATEGORY, DIRECT_AUTO_CUPS_PUSH, INDIRECT_AUTO_CUPS_PUSH, IS_ATM
+    </sql>
+
+</mapper>
