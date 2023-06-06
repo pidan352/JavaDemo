@@ -1,19 +1,18 @@
 package com.lyl.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.time.LocalDateTime;
+import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.time.LocalDateTime;
+
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author lyl
@@ -23,16 +22,20 @@ import lombok.experimental.Accessors;
 @Setter
 @Accessors(chain = true)
 @TableName("T_M04_MER_MULTI_APP")
+@ExcelIgnoreUnannotated
 public class M04MerMultiApp implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @ExcelProperty("数据库ID")
     @TableId(value = "ID", type = IdType.ASSIGN_UUID)
     private String id;
 
+    @ExcelProperty("客户ID")
     @TableField("CUSTOMER_ID")
     private String customerId;
 
+    @ExcelProperty("IsMain")
     @TableField("IS_MAIN")
     private Long isMain;
 
@@ -42,9 +45,11 @@ public class M04MerMultiApp implements Serializable {
     @TableField("PROJECT_SUB_CATEGORIES")
     private String projectSubCategories;
 
+    @ExcelProperty("注册方式")
     @TableField("REGISTER_WAY")
     private Long registerWay;
 
+    @ExcelProperty("状态")
     @TableField("STATUS")
     private Long status;
 
@@ -63,12 +68,15 @@ public class M04MerMultiApp implements Serializable {
     @TableField("SETTLEMENT_NO")
     private String settlementNo;
 
+    @ExcelProperty("首季度标识")
     @TableField("HEAD_QUARTERS_FLAG")
     private Long headQuartersFlag;
 
+    @ExcelProperty("是否为贸易程序")
     @TableField("IS_TRADE_PROCESS")
     private Long isTradeProcess;
 
+    @ExcelProperty("是否结算")
     @TableField("IS_SETTLEMENT")
     private Long isSettlement;
 
@@ -78,6 +86,7 @@ public class M04MerMultiApp implements Serializable {
     @TableField("OLD_MERCHANT_NO")
     private String oldMerchantNo;
 
+    @ExcelProperty("收单行编号")
     @TableField("ACQUIRER_NO")
     private String acquirerNo;
 
@@ -144,30 +153,38 @@ public class M04MerMultiApp implements Serializable {
     @TableField("BMS_ID")
     private String bmsId;
 
+    @ExcelProperty("创建者")
     @TableField("CREATER")
     private String creater;
 
+    @ExcelProperty("创建日期")
     @TableField(value = "CREATE_DATE", fill = FieldFill.INSERT)
     private LocalDateTime createDate;
 
+    @ExcelProperty("上次修改者")
     @TableField("LAST_MODIFIER")
     private String lastModifier;
 
+    @ExcelProperty("上次修改时间")
     @TableField("LAST_MODIFY_DATE")
     private LocalDateTime lastModifyDate;
 
+    @ExcelProperty("分支机构")
     @TableField("BRANCH")
     private String branch;
 
+    @ExcelProperty("省分支")
     @TableField("PROVINCE_BRANCH")
     private String provinceBranch;
 
+    @ExcelProperty("逻辑删除")
     @TableField(value = "IS_DELETE", fill = FieldFill.INSERT)
     private String isDelete;
 
     @TableField("CHECK_DATE")
     private LocalDateTime checkDate;
 
+    @ExcelProperty("应用程序类别")
     @TableField("APP_CATEGORY")
     private Long appCategory;
 
@@ -177,6 +194,7 @@ public class M04MerMultiApp implements Serializable {
     @TableField("SUPPORT_CARD")
     private String supportCard;
 
+    @ExcelProperty("应用程序编号")
     @TableField("APP_NO")
     private Long appNo;
 
