@@ -1,8 +1,6 @@
 package com.lyl.controller;
 
-
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author lyl
- * @since 2023-05-30
+ * @since 2023-06-06
  */
 @RestController
-@RequestMapping("/lyl/adm-bank-code")
+@RequestMapping("/lyl/admBankCode")
 public class AdmBankCodeController {
 
 }

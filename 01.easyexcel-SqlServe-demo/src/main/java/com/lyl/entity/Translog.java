@@ -1,10 +1,10 @@
 package com.lyl.entity;
 
-import java.math.BigDecimal;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.math.BigDecimal;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -12,10 +12,11 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author lyl
- * @since 2023-05-30
+ * @since 2023-06-06
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
+@Accessors(chain = true)
 public class Translog implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,27 +53,23 @@ public class Translog implements Serializable {
 
     private BigDecimal hsComm;
 
-    private Integer fcardtype;
+    private Byte fcardtype;
 
     private BigDecimal fcomma;
 
-    private Integer feps;
+    private Byte feps;
 
     private String cardNo;
 
     private String jsCode;
 
-    @TableField("servicePointInserttype")
-    private String servicepointinserttype;
+    private String servicePointInserttype;
 
     private String termAbility;
 
-    @TableField("ICcardConditionCode")
-    private String iccardconditioncode;
+    private String iCcardConditionCode;
 
     private String typeid;
 
     private String indexNo;
-
-
 }

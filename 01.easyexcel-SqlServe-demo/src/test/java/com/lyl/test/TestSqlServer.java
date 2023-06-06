@@ -1,7 +1,8 @@
 package com.lyl.test;
 
-import com.lyl.entity.TM04MerMultiApp;
-import com.lyl.mapper.TM04MerMultiAppMapper;
+import com.lyl.entity.M04MerMultiApp;
+import com.lyl.mapper.M04MerMultiAppMapper;
+import com.lyl.mapper.M04MerMultiAppMapper;
 import com.lyl.mapper.TestMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,34 +22,17 @@ import java.time.LocalDateTime;
 public class TestSqlServer {
 
 	@Resource
-	private TM04MerMultiAppMapper tm04MerMultiAppMapper;
+	private M04MerMultiAppMapper m04MerMultiAppMapper;
 
 	@Resource
 	private TestMapper testMapper;
 
 	@Test
 	public void test1() {
-		TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
-		tm04MerMultiApp.setId("test3");
-		tm04MerMultiApp.setCustomerId("test1");
-		tm04MerMultiApp.setIsMain(0d);
-		tm04MerMultiApp.setRegisterWay(0d);
-		tm04MerMultiApp.setStatus(0d);
-		tm04MerMultiApp.setHeadQuartersFlag(0d);
-		tm04MerMultiApp.setIsTradeProcess(0d);
-		tm04MerMultiApp.setIsSettlement(0d);
-		tm04MerMultiApp.setAcquirerNo("test1");
-		tm04MerMultiApp.setCreater("test1");
-		tm04MerMultiApp.setCreateDate(LocalDateTime.now());
-		tm04MerMultiApp.setLastModifier("test1");
-		tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
-		tm04MerMultiApp.setBranch("test1");
-		tm04MerMultiApp.setProvinceBranch("test1");
-		tm04MerMultiApp.setIsDelete("0");
-		tm04MerMultiApp.setAppCategory(0d);
-		tm04MerMultiApp.setAppNo(0d);
+		M04MerMultiApp M04MerMultiApp = new M04MerMultiApp();
+		extracted(M04MerMultiApp);
 
-		int i = tm04MerMultiAppMapper.insert(tm04MerMultiApp);
+		int i = m04MerMultiAppMapper.insert(M04MerMultiApp);
 		if (i > 0) {
 			System.out.println("插入成功");
 		} else {
@@ -56,12 +40,35 @@ public class TestSqlServer {
 		}
 	}
 
+
+
 	@Test
 	public void test2() {
 		com.lyl.entity.Test test = new com.lyl.entity.Test();
 		test.setId("test5");
-		test.setTest(0d);
+		test.setTest(0L);
 		test.setMic("test1");
 		testMapper.insert(test);
+	}
+
+	private static void extracted(M04MerMultiApp M04MerMultiApp) {
+		M04MerMultiApp.setId("test3")
+				.setCustomerId("test1")
+				.setIsMain(0L)
+				.setRegisterWay(0L)
+				.setStatus(0L)
+				.setHeadQuartersFlag(0L)
+				.setIsTradeProcess(0L)
+				.setIsSettlement(0L)
+				.setAcquirerNo("test1")
+				.setCreater("test1")
+				.setCreateDate(LocalDateTime.now())
+				.setLastModifier("test1")
+				.setLastModifyDate(LocalDateTime.now())
+				.setBranch("test1")
+				.setProvinceBranch("test1")
+				.setIsDelete("0")
+				.setAppCategory(0L)
+				.setAppNo(0L);
 	}
 }

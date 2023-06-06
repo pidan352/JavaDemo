@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author lyl
- * @since 2023-05-30
+ * @since 2023-06-06
  */
 public interface AdmBankCodeMapper extends BaseMapper<AdmBankCode> {
 

@@ -25,11 +25,16 @@
         <result column="feps" property="feps" />
         <result column="card_no" property="cardNo" />
         <result column="js_code" property="jsCode" />
-        <result column="servicePointInserttype" property="servicepointinserttype" />
+        <result column="servicePointInserttype" property="servicePointInserttype" />
         <result column="term_ability" property="termAbility" />
-        <result column="ICcardConditionCode" property="iccardconditioncode" />
+        <result column="ICcardConditionCode" property="iCcardConditionCode" />
         <result column="typeid" property="typeid" />
         <result column="index_no" property="indexNo" />
     </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ssn, term_ssn, tx_acc, mer_code, term, tran_code, tran_curr, sett_curr, cb_bank, act_date, act_time, post_date, tran_amt, n_tran_amt, hs_amt, hs_comm, fcardtype, fcomma, feps, card_no, js_code, servicePointInserttype, term_ability, ICcardConditionCode, typeid, index_no
+    </sql>
 
 </mapper>

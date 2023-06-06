@@ -1,8 +1,9 @@
 package com.lyl.test;
 
-import com.lyl.entity.TM04MerMultiApp;
-import com.lyl.mapper.TM04MerMultiAppMapper;
-import com.lyl.service.ITM04MerMultiAppService;
+
+import com.lyl.entity.M04MerMultiApp;
+import com.lyl.mapper.M04MerMultiAppMapper;
+import com.lyl.service.M04MerMultiAppService;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.StopWatch;
@@ -23,10 +24,10 @@ import java.util.ArrayList;
 public class InsertData {
 
 	@Resource
-	ITM04MerMultiAppService tm04MerMultiAppService;
+	M04MerMultiAppService tm04MerMultiAppService;
 
 	@Resource
-	TM04MerMultiAppMapper tm04MerMultiAppMapper;
+	M04MerMultiAppMapper tm04MerMultiAppMapper;
 
 	/**
 	 * 未开重写sql参数
@@ -40,25 +41,8 @@ public class InsertData {
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start("开始");
 		for (int i = 1; i <= 100000; i++) {
-			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
-			tm04MerMultiApp.setId("test" + i);
-			tm04MerMultiApp.setCustomerId("test" + i);
-			tm04MerMultiApp.setIsMain(0d);
-			tm04MerMultiApp.setRegisterWay(0d);
-			tm04MerMultiApp.setStatus(0d);
-			tm04MerMultiApp.setHeadQuartersFlag(0d);
-			tm04MerMultiApp.setIsTradeProcess(0d);
-			tm04MerMultiApp.setIsSettlement(0d);
-			tm04MerMultiApp.setAcquirerNo("test" + i);
-			tm04MerMultiApp.setCreater("test" + i);
-			tm04MerMultiApp.setCreateDate(LocalDateTime.now());
-			tm04MerMultiApp.setLastModifier("test" + i);
-			tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
-			tm04MerMultiApp.setBranch("test" + i);
-			tm04MerMultiApp.setProvinceBranch("test" + i);
-			tm04MerMultiApp.setIsDelete("0");
-			tm04MerMultiApp.setAppCategory(0d);
-			tm04MerMultiApp.setAppNo(0d);
+			M04MerMultiApp tm04MerMultiApp = new M04MerMultiApp();
+			extracted(i, tm04MerMultiApp);
 
 			boolean j = tm04MerMultiAppService.save(tm04MerMultiApp);
 			if (j) {
@@ -70,6 +54,7 @@ public class InsertData {
 		stopWatch.stop();
 		System.out.println("执行完毕：" + stopWatch.getTotalTimeMillis());
 	}
+
 
 	/**
 	 * 未开重写sql参数，单线程批量插入10万条数据
@@ -92,27 +77,10 @@ public class InsertData {
 	void test2() {
 		//StopWatch stopWatch = new StopWatch();
 		//stopWatch.start();
-		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
+		ArrayList<M04MerMultiApp> list = new ArrayList<>();
 		for (int i = 1; i <= 1000000; i++) {
-			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
-			tm04MerMultiApp.setId("test" + i);
-			tm04MerMultiApp.setCustomerId("test" + i);
-			tm04MerMultiApp.setIsMain(0d);
-			tm04MerMultiApp.setRegisterWay(0d);
-			tm04MerMultiApp.setStatus(0d);
-			tm04MerMultiApp.setHeadQuartersFlag(0d);
-			tm04MerMultiApp.setIsTradeProcess(0d);
-			tm04MerMultiApp.setIsSettlement(0d);
-			tm04MerMultiApp.setAcquirerNo("test" + i);
-			tm04MerMultiApp.setCreater("test" + i);
-			tm04MerMultiApp.setCreateDate(LocalDateTime.now());
-			tm04MerMultiApp.setLastModifier("test" + i);
-			tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
-			tm04MerMultiApp.setBranch("test" + i);
-			tm04MerMultiApp.setProvinceBranch("test" + i);
-			tm04MerMultiApp.setIsDelete("0");
-			tm04MerMultiApp.setAppCategory(0d);
-			tm04MerMultiApp.setAppNo(0d);
+			M04MerMultiApp tm04MerMultiApp = new M04MerMultiApp();
+			extracted(i, tm04MerMultiApp);
 
 			list.add(tm04MerMultiApp);
 			if (i % 10000 == 0) {
@@ -143,27 +111,10 @@ public class InsertData {
 	void test3() {
 		//StopWatch stopWatch = new StopWatch();
 		//stopWatch.start("开始");
-		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
+		ArrayList<M04MerMultiApp> list = new ArrayList<>();
 		for (int i = 1; i <= 1000000; i++) {
-			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
-			tm04MerMultiApp.setId("test" + i);
-			tm04MerMultiApp.setCustomerId("test" + i);
-			tm04MerMultiApp.setIsMain(0d);
-			tm04MerMultiApp.setRegisterWay(0d);
-			tm04MerMultiApp.setStatus(0d);
-			tm04MerMultiApp.setHeadQuartersFlag(0d);
-			tm04MerMultiApp.setIsTradeProcess(0d);
-			tm04MerMultiApp.setIsSettlement(0d);
-			tm04MerMultiApp.setAcquirerNo("test" + i);
-			tm04MerMultiApp.setCreater("test" + i);
-			tm04MerMultiApp.setCreateDate(LocalDateTime.now());
-			tm04MerMultiApp.setLastModifier("test" + i);
-			tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
-			tm04MerMultiApp.setBranch("test" + i);
-			tm04MerMultiApp.setProvinceBranch("test" + i);
-			tm04MerMultiApp.setIsDelete("0");
-			tm04MerMultiApp.setAppCategory(0d);
-			tm04MerMultiApp.setAppNo(0d);
+			M04MerMultiApp tm04MerMultiApp = new M04MerMultiApp();
+			extracted(i, tm04MerMultiApp);
 
 			list.add(tm04MerMultiApp);
 			if (i % 100 == 0) {
@@ -185,28 +136,10 @@ public class InsertData {
 	 */
 	@Test
 	void test4() {
-		ArrayList<TM04MerMultiApp> list = new ArrayList<>();
+		ArrayList<M04MerMultiApp> list = new ArrayList<>();
 		for (int i = 1; i <= 100000; i++) {
-			TM04MerMultiApp tm04MerMultiApp = new TM04MerMultiApp();
-			tm04MerMultiApp.setId("test" + i);
-			tm04MerMultiApp.setCustomerId("test" + i);
-			tm04MerMultiApp.setIsMain(0d);
-			tm04MerMultiApp.setRegisterWay(0d);
-			tm04MerMultiApp.setStatus(0d);
-			tm04MerMultiApp.setHeadQuartersFlag(0d);
-			tm04MerMultiApp.setIsTradeProcess(0d);
-			tm04MerMultiApp.setIsSettlement(0d);
-			tm04MerMultiApp.setAcquirerNo("test" + i);
-			tm04MerMultiApp.setCreater("test" + i);
-			tm04MerMultiApp.setCreateDate(LocalDateTime.now());
-			tm04MerMultiApp.setLastModifier("test" + i);
-			tm04MerMultiApp.setLastModifyDate(LocalDateTime.now());
-			tm04MerMultiApp.setBranch("test" + i);
-			tm04MerMultiApp.setProvinceBranch("test" + i);
-			tm04MerMultiApp.setIsDelete("0");
-			tm04MerMultiApp.setAppCategory(0d);
-			tm04MerMultiApp.setAppNo(0d);
-
+			M04MerMultiApp tm04MerMultiApp = new M04MerMultiApp();
+			extracted(i, tm04MerMultiApp);
 			list.add(tm04MerMultiApp);
 			if (i % 20 == 0) {
 				Integer j = tm04MerMultiAppMapper.insertBatchSomeColumn(list);
@@ -216,5 +149,27 @@ public class InsertData {
 				list.clear();
 			}
 		}
+	}
+
+
+	private static void extracted(int i, M04MerMultiApp tm04MerMultiApp) {
+		tm04MerMultiApp.setId("test"+ i)
+				.setCustomerId("test" + i)
+				.setIsMain(0L)
+				.setRegisterWay(0L)
+				.setStatus(0L)
+				.setHeadQuartersFlag(0L)
+				.setIsTradeProcess(0L)
+				.setIsSettlement(0L)
+				.setAcquirerNo("test" + i)
+				.setCreater("test" + i)
+				.setCreateDate(LocalDateTime.now())
+				.setLastModifier("test" + i)
+				.setLastModifyDate(LocalDateTime.now())
+				.setBranch("test" + i)
+				.setProvinceBranch("test" + i)
+				.setIsDelete("0")
+				.setAppCategory(0L)
+				.setAppNo(0L);
 	}
 }

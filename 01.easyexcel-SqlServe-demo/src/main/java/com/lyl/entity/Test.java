@@ -1,43 +1,34 @@
 package com.lyl.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.time.LocalDateTime;
-
-import com.baomidou.mybatisplus.annotation.TableField;
-
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
- *
+ * 
  * </p>
  *
  * @author lyl
- * @since 2023-06-01
+ * @since 2023-06-06
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
-@TableName("test")
+@Getter
+@Setter
+@Accessors(chain = true)
 public class Test implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@TableField("ID")
-	private String id;
+    @TableId(value = "ID", type = IdType.ASSIGN_UUID)
+    private String id;
 
-	@TableField("TEST")
-	private Double test;
+    private Long test;
 
-	@TableField(value = "createdate", fill = FieldFill.INSERT)
-	private LocalDateTime createdate;
+    private LocalDateTime createdate;
 
-	@TableField("mic")
-	private String mic;
-
-
+    private String mic;
 }

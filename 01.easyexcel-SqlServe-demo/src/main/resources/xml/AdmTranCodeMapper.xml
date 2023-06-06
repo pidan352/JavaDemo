@@ -15,4 +15,9 @@
         <result column="duizh_remark" property="duizhRemark" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        tran_code, requst_code, response_code, tran_type_3, service_point_25, sett_flag, is_need_sett, remark, duizh_remark
+    </sql>
+
 </mapper>

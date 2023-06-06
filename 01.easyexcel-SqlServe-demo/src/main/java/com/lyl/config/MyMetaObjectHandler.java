@@ -38,6 +38,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
 	@Override
 	public void insertFill(MetaObject metaObject) {
 		this.strictInsertFill(metaObject, "createDate", LocalDateTime.class, LocalDateTime.now()); // 起始版本 3.3.0(推荐使用)
+		this.strictInsertFill(metaObject, "isDelete", String.class, "0"); // 起始版本
+		// 3.3.0(推荐使用)
 	}
 
 	@Override

@@ -4,10 +4,15 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lyl.entity.Test">
-        <result column="ID" property="id" />
+        <id column="ID" property="id" />
         <result column="TEST" property="test" />
         <result column="createdate" property="createdate" />
         <result column="mic" property="mic" />
     </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, TEST, createdate, mic
+    </sql>
 
 </mapper>

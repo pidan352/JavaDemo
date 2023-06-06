@@ -1,8 +1,8 @@
 package com.lyl.service.impl;
 
-import com.lyl.entity.AdmTranCode;
-import com.lyl.mapper.AdmTranCodeMapper;
-import com.lyl.service.AdmTranCodeService;
+import com.lyl.entity.M00Customer;
+import com.lyl.mapper.M00CustomerMapper;
+import com.lyl.service.M00CustomerService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2023-06-06
  */
 @Service
-public class AdmTranCodeServiceImpl extends ServiceImpl<AdmTranCodeMapper, AdmTranCode> implements AdmTranCodeService {
+public class M00CustomerServiceImpl extends ServiceImpl<M00CustomerMapper, M00Customer> implements M00CustomerService {
 
 }

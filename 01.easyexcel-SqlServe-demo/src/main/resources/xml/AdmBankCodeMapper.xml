@@ -10,4 +10,9 @@
         <result column="bank_name" property="bankName" />
     </resultMap>
 
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        bank_code, old_code, bank_sign, bank_name
+    </sql>
+
 </mapper>

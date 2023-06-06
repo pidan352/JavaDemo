@@ -1,8 +1,10 @@
 package com.lyl.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -10,10 +12,12 @@ import lombok.EqualsAndHashCode;
  * </p>
  *
  * @author lyl
- * @since 2023-05-30
+ * @since 2023-06-06
  */
-@Data
-@EqualsAndHashCode(callSuper = false)
+@Getter
+@Setter
+@Accessors(chain = true)
+@TableName("adm_tran_code")
 public class AdmTranCode implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,6 +39,4 @@ public class AdmTranCode implements Serializable {
     private String remark;
 
     private String duizhRemark;
-
-
 }
