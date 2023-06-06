@@ -13,4 +13,4 @@ mybatis-plus:
   global-config:
     db-config:
       schema: "[text].[easy-excel-test]"
-  mapper-locations: classpath*:xml/*.xml
+  mapper-locations: ["classpath*:/mapper/*.xml"]

@@ -120,4 +120,5 @@
             ( #{item.id}, #{item.customerId}, #{item.isMain}, #{item.registerWay}, #{item.status}, #{item.isSettlement}, #{item.headQuartersFlag}, #{item.isTradeProcess}, #{item.acquirerNo}, #{item.creater}, #{item.createDate}, #{item.lastModifier}, #{item.lastModifyDate}, #{item.branch}, #{item.provinceBranch}, #{item.isDelete},#{item.appCategory}, #{item.appNo} )
         </foreach>
     </insert>
+
 </mapper>

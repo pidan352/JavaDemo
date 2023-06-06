@@ -25,7 +25,7 @@ import java.util.Collections;
 
 public class CodeGenerator {
 	public static void main(String[] args) {
-		String projectPath = System.getProperty("user.dir")+"/01.easyexcel-SqlServe-demo";
+		String projectPath = System.getProperty("user.dir")+"/_01_easyexcel-SqlServe-demo";
 
 		//数据源配置
 		DataSourceConfig dsc = new DataSourceConfig.Builder(

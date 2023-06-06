@@ -1,6 +1,5 @@
 package com.lyl.service;
 
-import com.baomidou.mybatisplus.extension.injector.methods.InsertBatchSomeColumn;
 import com.lyl.entity.Test;
 import com.baomidou.mybatisplus.extension.service.IService;
 
