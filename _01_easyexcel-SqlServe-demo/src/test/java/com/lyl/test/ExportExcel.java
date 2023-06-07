@@ -1,5 +1,6 @@
 package com.lyl.test;
 
+import cn.hutool.core.convert.Convert;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
@@ -13,6 +14,8 @@ import org.springframework.util.StopWatch;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 功能：测试将百万数据导出为Excel
@@ -86,6 +89,47 @@ public class ExportExcel {
             }
             stopWatch.stop();
             System.out.println("运行时间：" + stopWatch.getTotalTimeSeconds());
+        }
+    }
+
+    /**
+     * 采用多线程方式将数据写入Excel
+     */
+    @Test
+    void asyncRepeatWrite() {
+        int thread = 5;
+        //数据量
+        long total = m04MerMultiAppService.count();
+        //每个线程平均处理的数据量
+        int pageSize = Convert.toInt(total != (total / thread) * thread ? total / thread + 1 : total / thread);
+        System.out.println("每个线程处理的数据量：" + pageSize);
+        String fileName = EXCEL_OUTPUT_PATH + System.currentTimeMillis() + ".xlsx";
+        ExecutorService es = Executors.newFixedThreadPool(thread);
+
+        try {
+            ExcelWriter excelWriter = EasyExcel.write(fileName, M04MerMultiApp.class).build();
+            WriteSheet writeSheet = EasyExcel.writerSheet("sheet1").build();
+
+            Object o = new Object();
+            //5个线程读取数据库数据并写入到同一个Excel
+            for (int i = 0; i < thread; i++) {
+                int finalI = i;
+                es.submit(() -> {
+                    // 分页去数据库查询数据
+                    Page<M04MerMultiApp> page1 = new Page<>(finalI + 1, pageSize);
+                    //这样就不会弹出jsqlparse的异常了
+                    page1.setOptimizeCountSql(false);
+                    Page<M04MerMultiApp> page;
+                    synchronized (o) {
+                        page = m04MerMultiAppService.page(page1);
+                    }
+                    System.err.println("线程" + Thread.currentThread().getName() + "读取的数据：" + page.getRecords().size());
+                    excelWriter.write(page.getRecords(), writeSheet);
+                });
+                System.out.println("提交任务" + i);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

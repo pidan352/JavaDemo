@@ -10,7 +10,25 @@ package com.lyl.test;
 
 public class TestMain {
 
-	public static void main(String[] args) {
-		System.out.println(System.getProperty("user.home"));
-	}
+    public static void main(String[] args) throws InterruptedException {
+        MyRunnable firstThread = new MyRunnable();
+        Thread t1 = new Thread(firstThread);
+        t1.start();
+
+        Thread.sleep(200);
+
+        firstThread.flag = false;
+    }
+}
+
+class MyRunnable extends Thread {
+    public boolean flag = true;
+
+    @Override
+    public void run() {
+
+        while (flag) {
+
+        }
+    }
 }
