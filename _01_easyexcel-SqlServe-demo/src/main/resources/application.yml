@@ -26,9 +26,9 @@ spring:
 #      min-idle: 2
 
 mybatis-plus:
-  configuration:
+#  configuration:
 #    showSql
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
       schema: "[text].[easy-excel-test]"

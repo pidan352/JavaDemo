@@ -5,6 +5,7 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ import java.time.LocalDateTime;
 @Accessors(chain = true)
 @TableName("T_M04_MER_MULTI_APP")
 @ExcelIgnoreUnannotated
+@ToString
 public class M04MerMultiApp implements Serializable {
 
     private static final long serialVersionUID = 1L;
