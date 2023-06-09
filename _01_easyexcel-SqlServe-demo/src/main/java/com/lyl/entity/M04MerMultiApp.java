@@ -3,9 +3,7 @@ package com.lyl.entity;
 import com.alibaba.excel.annotation.ExcelIgnoreUnannotated;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serializable;
@@ -21,7 +19,10 @@ import java.time.LocalDateTime;
  */
 @Getter
 @Setter
-@Accessors(chain = true)
+@EqualsAndHashCode
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @TableName("T_M04_MER_MULTI_APP")
 @ExcelIgnoreUnannotated
 @ToString
@@ -41,7 +42,7 @@ public class M04MerMultiApp implements Serializable {
     @TableField("IS_MAIN")
     private Long isMain;
 
-    @TableField("PROJECT_NAME")
+    @TableField(value = "PROJECT_NAME")
     private String projectName;
 
     @TableField("PROJECT_SUB_CATEGORIES")

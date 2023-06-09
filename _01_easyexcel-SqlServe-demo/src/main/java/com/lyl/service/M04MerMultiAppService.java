@@ -15,5 +15,5 @@ import java.util.List;
  */
 public interface M04MerMultiAppService extends IService<M04MerMultiApp> {
 
-    boolean saveBatchTest(List list);
+    boolean saveBatchTest(List<M04MerMultiApp> list);
 }

@@ -21,54 +21,54 @@ import java.time.LocalDateTime;
 @SpringBootTest
 public class TestSqlServer {
 
-	@Resource
-	private M04MerMultiAppMapper m04MerMultiAppMapper;
+    @Resource
+    private M04MerMultiAppMapper m04MerMultiAppMapper;
 
-	@Resource
-	private TestMapper testMapper;
+    @Resource
+    private TestMapper testMapper;
 
-	@Test
-	public void test1() {
-		M04MerMultiApp M04MerMultiApp = new M04MerMultiApp();
-		extracted(M04MerMultiApp);
+    @Test
+    public void test1() {
+        M04MerMultiApp M04MerMultiApp = extracted();
 
-		int i = m04MerMultiAppMapper.insert(M04MerMultiApp);
-		if (i > 0) {
-			System.out.println("插入成功");
-		} else {
-			System.out.println("插入失败");
-		}
-	}
-
+        int i = m04MerMultiAppMapper.insert(M04MerMultiApp);
+        if (i > 0) {
+            System.out.println("插入成功");
+        } else {
+            System.out.println("插入失败");
+        }
+    }
 
 
-	@Test
-	public void test2() {
-		com.lyl.entity.Test test = new com.lyl.entity.Test();
-		test.setId("test5");
-		test.setTest(0L);
-		test.setMic("test1");
-		testMapper.insert(test);
-	}
+    @Test
+    public void test2() {
+        com.lyl.entity.Test test = new com.lyl.entity.Test();
+        test.setId("test5");
+        test.setTest(0L);
+        test.setMic("test1");
+        testMapper.insert(test);
+    }
 
-	private static void extracted(M04MerMultiApp M04MerMultiApp) {
-		M04MerMultiApp.setId("test3")
-				.setCustomerId("test1")
-				.setIsMain(0L)
-				.setRegisterWay(0L)
-				.setStatus(0L)
-				.setHeadQuartersFlag(0L)
-				.setIsTradeProcess(0L)
-				.setIsSettlement(0L)
-				.setAcquirerNo("test1")
-				.setCreater("test1")
-				.setCreateDate(LocalDateTime.now())
-				.setLastModifier("test1")
-				.setLastModifyDate(LocalDateTime.now())
-				.setBranch("test1")
-				.setProvinceBranch("test1")
-				.setIsDelete("0")
-				.setAppCategory(0L)
-				.setAppNo(0L);
-	}
+    private static M04MerMultiApp extracted() {
+        return M04MerMultiApp.builder()
+                .id("test3")
+                .customerId("test1")
+                .isMain(0L)
+                .registerWay(0L)
+                .status(0L)
+                .headQuartersFlag(0L)
+                .isTradeProcess(0L)
+                .isSettlement(0L)
+                .acquirerNo("test1")
+                .creater("test1")
+                .createDate(LocalDateTime.now())
+                .lastModifier("test1")
+                .lastModifyDate(LocalDateTime.now())
+                .branch("test1")
+                .provinceBranch("test1")
+                .isDelete("0")
+                .appCategory(0L)
+                .appNo(0L)
+                .build();
+    }
 }

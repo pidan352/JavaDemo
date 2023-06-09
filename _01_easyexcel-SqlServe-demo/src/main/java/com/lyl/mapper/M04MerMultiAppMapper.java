@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author lyl
@@ -16,5 +16,5 @@ import java.util.List;
  */
 public interface M04MerMultiAppMapper extends ExtendBaseMapper<M04MerMultiApp> {
 
-    boolean saveBatchTest(List list);
+    boolean saveBatchTest(List<M04MerMultiApp> list);
 }
