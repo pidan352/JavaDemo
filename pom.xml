@@ -8,9 +8,6 @@
     <artifactId>JavaDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <modules>
-        <module>_01_easyexcel-SqlServe-demo</module>
-    </modules>
 
     <build>
         <plugins>
