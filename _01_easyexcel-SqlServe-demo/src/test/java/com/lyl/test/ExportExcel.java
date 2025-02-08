@@ -26,7 +26,7 @@ import java.util.concurrent.Executors;
  * @date 2023/6/2 0002
  */
 
-@SpringBootTest
+@SpringBootTest()
 public class ExportExcel {
 
     static final String EXCEL_OUTPUT_PATH = System.getProperty("user.dir") + "\\excel\\";
