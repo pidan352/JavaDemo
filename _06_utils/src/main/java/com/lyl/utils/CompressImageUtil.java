@@ -1,15 +1,17 @@
-package com.aliai.utils;
+package com.lyl.utils;
 
 import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.*;
 import javax.imageio.stream.ImageInputStream;
 import javax.imageio.stream.ImageOutputStream;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Iterator;
 
 /**
@@ -76,7 +78,6 @@ public class CompressImageUtil {
 
             compress(srcFileJPG, new File(destFile), quantity);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
             throw e;
         }
         return destFile;
@@ -153,63 +154,63 @@ public class CompressImageUtil {
         }
     }
 
-    public static byte[] compressMultipartFile(MultipartFile file, float quality) throws IOException {
-        if (file == null || file.isEmpty()) {
-            throw new IllegalArgumentException("文件为空");
-        }
-        ByteArrayInputStream bais = new ByteArrayInputStream(file.getBytes());
-        ImageInputStream iis = ImageIO.createImageInputStream(bais);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
-        try {
-            Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
-            if (!readers.hasNext()) {
-                throw new IOException("不支持的图片格式");
-            }
-
-            ImageReader reader = readers.next();
-            reader.setInput(iis);
-
-            String formatName = reader.getFormatName().toLowerCase();
-
-            Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(formatName);
-            if (!writers.hasNext()) {
-                throw new IOException("找不到该格式的编码器: " + formatName);
-            }
-
-            BufferedImage image = reader.read(0);
-
-            ImageWriter writer = writers.next();
-            writer.setOutput(ios);
-
-            javax.imageio.ImageWriteParam imageWriteParam = writer.getDefaultWriteParam();
-            if (imageWriteParam != null) {
-                if (imageWriteParam.canWriteCompressed()) {
-                    imageWriteParam.setCompressionMode(javax.imageio.ImageWriteParam.MODE_EXPLICIT);
-                    imageWriteParam.setCompressionQuality(quality);
-                } else {
-                    //png可能出现无法压缩
-                    // 将图片转换为 8 位索引颜色模式
-                    BufferedImage indexedImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_BYTE_INDEXED);
-                    Graphics2D g2d = indexedImage.createGraphics();
-                    g2d.drawImage(image, 0, 0, null);
-                    g2d.dispose();
-                    image = indexedImage;
-                }
-            }
-
-            writer.write(null, new IIOImage(image, null, null), imageWriteParam);
-            byte[] byteArray = baos.toByteArray();
-            writer.dispose();
-
-            return byteArray;
-        } finally {
-            bais.close();
-            iis.close();
-            baos.close();
-            ios.close();
-        }
-    }
+//    public static byte[] compressMultipartFile(MultipartFile file, float quality) throws IOException {
+//        if (file == null || file.isEmpty()) {
+//            throw new IllegalArgumentException("文件为空");
+//        }
+//        ByteArrayInputStream bais = new ByteArrayInputStream(file.getBytes());
+//        ImageInputStream iis = ImageIO.createImageInputStream(bais);
+//        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        ImageOutputStream ios = ImageIO.createImageOutputStream(baos);
+//        try {
+//            Iterator<ImageReader> readers = ImageIO.getImageReaders(iis);
+//            if (!readers.hasNext()) {
+//                throw new IOException("不支持的图片格式");
+//            }
+//
+//            ImageReader reader = readers.next();
+//            reader.setInput(iis);
+//
+//            String formatName = reader.getFormatName().toLowerCase();
+//
+//            Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(formatName);
+//            if (!writers.hasNext()) {
+//                throw new IOException("找不到该格式的编码器: " + formatName);
+//            }
+//
+//            BufferedImage image = reader.read(0);
+//
+//            ImageWriter writer = writers.next();
+//            writer.setOutput(ios);
+//
+//            javax.imageio.ImageWriteParam imageWriteParam = writer.getDefaultWriteParam();
+//            if (imageWriteParam != null) {
+//                if (imageWriteParam.canWriteCompressed()) {
+//                    imageWriteParam.setCompressionMode(javax.imageio.ImageWriteParam.MODE_EXPLICIT);
+//                    imageWriteParam.setCompressionQuality(quality);
+//                } else {
+//                    //png可能出现无法压缩
+//                    // 将图片转换为 8 位索引颜色模式
+//                    BufferedImage indexedImage = new BufferedImage(image.getWidth(), image.getHeight(), BufferedImage.TYPE_BYTE_INDEXED);
+//                    Graphics2D g2d = indexedImage.createGraphics();
+//                    g2d.drawImage(image, 0, 0, null);
+//                    g2d.dispose();
+//                    image = indexedImage;
+//                }
+//            }
+//
+//            writer.write(null, new IIOImage(image, null, null), imageWriteParam);
+//            byte[] byteArray = baos.toByteArray();
+//            writer.dispose();
+//
+//            return byteArray;
+//        } finally {
+//            bais.close();
+//            iis.close();
+//            baos.close();
+//            ios.close();
+//        }
+//    }
 
     public static void main(String[] args) throws IOException {
         String s = compressImage("/nfs/jiadian/jiadian-server/pic/20250313/202503071518035a479b.png", 1024);
