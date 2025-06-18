@@ -1,0 +1,140 @@
+*.a       # 忽略所有 .a 结尾的文件
+!lib.a    # 但 lib.a 除外
+/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+build/    # 忽略 build/ 目录下的所有文件
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+teen/CodeGenerator
+# Created by .ignore support plugin (hsz.mobi)  
+### Maven template
+
+application-sx.properties
+mybatis-config.xml
+/auditlog
+target/ 
+.metadata/
+Servers/
+.setting/
+.settings/
+RemoteSystemsTempFiles/
+target/  
+pom.xml.tag  
+pom.xml.releaseBackup  
+pom.xml.versionsBackup  
+pom.xml.next  
+release.properties  
+dependency-reduced-pom.xml  
+buildNumber.properties  
+.mvn/timing.properties  
+  
+.idea/  
+classes/
+## File-based project format:  
+*.iws  
+*.iml  
+*.ipr  
+*.log
+.DS_Store
+.classpath
+.project
+*.launch
+rebel.xml
+.rebel
+/rebel/remote/
+rebel-remote.xml
+
+
+## Plugin-specific files:  
+  
+# IntelliJ  
+/out/  
+  
+# mpeltonen/sbt-idea plugin  
+.idea_modules/  
+  
+# JIRA plugin  
+atlassian-ide-plugin.xml  
+  
+# Crashlytics plugin (for Android Studio and IntelliJ)  
+com_crashlytics_export_strings.xml  
+crashlytics.properties  
+crashlytics-build.properties  
+fabric.properties  
+/web-arshan/applog
+/dao/target
+/common/target
+/domain/target
+/service/target
+/service-fegin-api/target
+/service-fegin-client/target
+/service-impl-arshan/target
+/service-impl-login/target
+/service-impl-wxapi/target
+/web-arshan/target
+/service-impl-arshan/applog
+/service-impl-wxapi/applog
+/service-impl-arshan/applog
+/service-impl-wxapi/applog
+/service-impl-wxapi/applog
+/service-impl-arshan/applog
+/web-plat/applog
+/server-zuul-gateway/target
+/web-plat/applog
+/web-plat/applog
+/server-zuul-gateway/applog
+/service-online-mall/applog
+/service-impl-plat/applog
+/service-impl-plat-ticket/applog
+/web-plat-shop/applog
+/web-plat-ticket/applog
+/server-zipkin/.settings
+/service/.settings
+/service-fegin-api/.settings
+/service-fegin-client/.settings
+/service-impl-login/.settings
+/service-impl-wxapi/.settings
+/common/*.classpath
+/common/.settings
+/server-zuul-gateway/bin
+/server-eureka/applog
+/server-zipkin/applog
+/server-zipkin/applog
+/starter-core/target
+/starter-core-datasource/target
+/manager/applog
+/applog/*
+/server-hystrix-turbine/applog
+/server-hystrix-turbine/target
+/applog
+/web-plat/build
+/manager/.externalToolBuilders
+/web-plat-wx/applog
+/system-service-impl-job/target
+/service-impl-job/target
+/service-impl-job/.externalToolBuilders
+/service-impl-guide/.externalToolBuilders
+/service-impl-guide/applog
+/service-impl-guide/target
+/service-impl-park/target
+/service-impl-park/.externalToolBuilders
+/service-impl-park/applog
+/service-impl-rent/target
+/service-impl-rent/.externalToolBuilders
+/service-impl-rent/applog
+/service-impl-hotel/target
+/service-impl-catering/target
+/service-impl-catering/.classpath
+/service-impl-catering/.project
+/service-impl-catering/.externalToolBuilders
+/service-impl-catering/.settings
+/service-impl-catering/applog
+/service-impl-precard/target
+/service-impl-kiosk/target
+/service-impl-order/applog
+/service-impl-order/target
+/classes/
+/bin
+/*/bin
+/production
+/service-impl-plat/src/main/resources/lib/ydsh-sdk-1.0.jar
+sm4evp_x64.dll
+/CodeGenerator/config/filepath.properties

@@ -1,0 +1,35 @@
+server:
+  port: 8085
+spring:
+  jackson:
+    time-zone: Asia/Shanghai
+  application:
+    #    应用的名称可选x
+    name: HutoolApplication
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost/reggie?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: root
+      password: admin123
+mybatis-plus:
+  configuration:
+    #在映射实体或者属性时，将数据库中表名和字段名中的下划线去掉，按照驼峰命名法映射
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: AUTO
+  mapper-locations: classpath*:/mapper/**/*.xml
+gateCustom:
+  publishKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNZ6t8Xmqtv9o3r+KE/LZpAsG3Oeg6Ddc58mGiGntyr0kneRPqOehvv5l4bwQ+MnL3LQRtPKu44H36FFIcAhYBXXj11xiGQoN3rbo6ez3KycgNC2VR9Fn7Owyw5K4YJkgWzyCz2O7okeyG++Q4BMrGkbjPVK/IieaKRYNs0Ri3yQIDAQAB
+  privateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAI1nq3xeaq2/2jev4oT8tmkCwbc56DoN1znyYaIae3KvSSd5E+o56G+/mXhvBD4ycvctBG08q7jgffoUUhwCFgFdePXXGIZCg3etujp7PcrJyA0LZVH0Wfs7DLDkrhgmSBbPILPY7uiR7Ib75DgEysaRuM9Ur8iJ5opFg2zRGLfJAgMBAAECgYBi3FcFRZF51kb/ZeWNqozxT+8VZdPZOrH9nlrqFW+3V5tikID+4euCrUbj72HdBjJgY0XUBXXddH4+6BQb5s1wrdVmZD5JKeWvPp2SGFwDExk97bKwFnG6+PJdavIsl5C/mI324wT9qZxoH865J0a4MJt93Gw4sUPFHJMhr8hTLQJBAM+jf3iCwgjCMxlzv0HQImPSM/8TacWQaEvsSbLBw5kFTptU7gN/KhqmYg/i2DA381WsccuKR2SyjXxZObWUf5sCQQCuVvjzMIvmZnx6PAHIA11M0l50PnnS2G2RlXEYAxKhPpATwu0AB0a6k7lYP0C4iDZiGsFhJyE0a4cYVYnBGUZrAkEAtJJ5brI4UCmjCsVwVKnO3oSVl4SofZnCOhS5Wu3LTq4g2FEZ1Iyobxi3Ox2J6RUfVyhqphoRUG8/QB7QYytLdQJAS5+WZYcNaGfUXwFglG5BLm2iYzImjfsrrBby88OBdUg6HxhSzcxaNdyWbV0iqekMDgolEAt1L9Pkyf1wv75C+QJADKWnKeer0obJk4zGda6exmaOX5++k6nn69amFaVbdgdsjYC9BoBc5YE4JmlxBg0JvsrcJPsW/ByxE0rAKGsvNw==
+
+
+
+
+
+
+
+
+
